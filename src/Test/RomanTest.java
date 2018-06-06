@@ -8,6 +8,6 @@ class RomanTest {
 
     @Test
     void shouldReturn1() {
-
+        System.out.println("Hello");
     }
 }
