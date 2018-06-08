@@ -1,20 +1,24 @@
 import Roman.Roman;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class RomanTest {
 
-    static private Roman roman;
+public class RomanTest {
 
-    @BeforeAll
-    static void setUp() {
-        roman = new Roman();
+    private Roman roman;
+
+    @Before
+    public void setUp() {
+        this.roman = new Roman();
     }
 
     @Test
-    void shouldReturnI() {
-        assertEquals(roman.convertFromInt(1),"I");
+    public void shouldReturnM1() {
+        assertEquals(roman.convertFromInt(0),"-1");
+        assertEquals(roman.convertFromInt(-1),"-1");
     }
+
+
 }
