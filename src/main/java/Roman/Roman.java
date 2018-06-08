@@ -3,53 +3,49 @@ package Roman;
 public class Roman {
 
     public String convertFromInt(int number) {
-        String result = "-1";
+        String result = "";
+        if (number <= 0)
+            return "-1";
+        // M == 1000
+        // D == 500
+        // C == 100
+        // L == 50
+        // X == 10
+        // V == 5
+        // I = 1
 
+        if ((number % 10000) / 1000 >= 1)
+            result += getConstruction((number % 10000) / 1000, "", "", "M");
+        if ((number % 1000) / 100 >= 1)
+            result += getConstruction((number % 1000) / 100, "M", "D", "C");
+        if ((number % 100) / 10 >= 1)
+            result += getConstruction((number % 100) / 10, "C", "L", "X");
+        if ((number % 10) >= 1)
+            result += getConstruction((number % 10), "X", "V", "I");
 
+        return result;
+    }
+
+    private String getConstruction(int number, String big, String bigger, String lower) {
+        String result = "";
         if (number == 1)
-            result = "I";
+            result = lower;
         if (number == 2)
-            result = "II";
+            result = lower + lower;
         if (number == 3)
-            result = "III";
+            result = lower + lower + lower;
         if (number == 4)
-            result = "IV";
+            result = lower + bigger;
         if (number == 5)
-            result = "V";
+            result = bigger;
         if (number == 6)
-            result = "VI";
+            result = bigger + lower;
         if (number == 7)
-            result = "VII";
+            result = bigger + lower + lower;
         if (number == 8)
-            result = "VIII";
+            result = bigger + lower + lower + lower;
         if (number == 9)
-            result = "IX";
-
-
-
-        if (number == 10)
-            result = "X";
-        if (number == 11)
-            result = "XI";
-        if (number == 12)
-            result = "XII";
-        if (number == 13)
-            result = "XIII";
-        if (number == 14)
-            result = "XIV";
-        if (number == 15)
-            result = "XV";
-        if (number == 16)
-            result = "XVI";
-        if (number == 17)
-            result = "XVII";
-        if (number == 18)
-            result = "XVIII";
-        if (number == 19)
-            result = "XIX";
-
-
-
+            result = lower + big;
         return result;
     }
 }
