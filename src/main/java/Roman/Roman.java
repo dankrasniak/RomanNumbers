@@ -2,10 +2,10 @@ package Roman;
 
 public class Roman {
 
-    public String convertFromInt(int number) {
+    public String convertFromInt(int number) throws UnderFlowException {
         String result = "";
         if (number <= 0)
-            return "-1";
+            throw new UnderFlowException();
         // M == 1000
         // D == 500
         // C == 100

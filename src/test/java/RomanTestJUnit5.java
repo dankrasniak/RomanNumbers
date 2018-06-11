@@ -1,4 +1,5 @@
 import Roman.Roman;
+import Roman.UnderFlowException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -31,4 +32,9 @@ class RomanTestJUnit5 {
         assertEquals(roman.convertFromInt(first), second);
     }
 
+
+    @Test
+    void shouldThrowUnderflowException() throws UnderFlowException{
+        roman.convertFromInt(-1);
+    }
 }
